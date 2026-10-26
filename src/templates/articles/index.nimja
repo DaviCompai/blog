@@ -1,0 +1,38 @@
+{% extends  partials/_html_wrapper.nimja %}
+
+{% block extra-head %}
+  <link href="https://static.davicompai.com/reset.css" rel="stylesheet">
+  <link href="https://static.davicompai.com/ifBrutal.css" rel="stylesheet">
+  <script type="module" src="https://static.davicompai.com/librarys/htmx.js" crossorigin="anonymous"></script>
+  <link href="/articles/style.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block header %}
+  <h1>DaviCompai's <wbr>Blog</h1>
+{% endblock %}
+
+
+{% block content %}
+
+  <a href="pagelink">
+    <article>
+      <div>
+        <h2>Titulo do texto</h2>
+        <p>Inicio do texto</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1791444644675-94fbc1ba1439?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="descrição da imagem">
+    </article>
+  </a>
+
+{% endblock %}
+
+
+{% block footer %}
+  <!-- <img src="/articles/neovim_full_background.gif" width="88" height="31" alt=""> -->
+  <img src="/articles/neovim_no_background.gif" width="88" height="31" alt="">
+  <img src="/articles/nim_kinda_darker_no_background.gif" width="88" height="31" alt="">
+  <img src="/articles/htmx_no_background.gif" width="88" height="31" alt="">
+  <!-- {% importnimja partials/_default_footer.nimja %} -->
+{% endblock %}
+
