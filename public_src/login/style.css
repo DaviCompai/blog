@@ -1,0 +1,40 @@
+body {
+  main {
+    article {
+      border: var(--big_border);
+      box-shadow: var(--big_box_shadow);
+      background-color: var(--background-color);
+
+      @media (width <=768px) {
+        border: none !important;
+        box-shadow: none !important;
+        background-color: transparent !important;
+      }
+    }
+  }
+}
+
+form {
+  padding: 4ch;
+
+  @media (width <=768px) {
+    padding: 0px;
+
+    input[type="text"],
+    input[type="password"] {
+      background-color: var(--background-color);
+    }
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-top: 4px;
+  }
+
+  input[type="submit"] {
+    margin: 0px !important;
+    margin-top: 8px !important;
+  }
+}
