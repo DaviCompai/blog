@@ -2,4 +2,5 @@
 nimble.develop
 nimble.paths
 nimbledeps
+blog.db
 /nimble.paths
