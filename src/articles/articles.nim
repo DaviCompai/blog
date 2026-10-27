@@ -7,9 +7,7 @@ import nimja/parser
 
 import tiny_sqlite
 
-import ../utilities/db_utils
-
-import ../utilities/markdown_utils
+import ../utilities/[db_utils, markdown_utils,login_utils]
 
 var language = ""
 
@@ -46,6 +44,8 @@ proc renderLoginPage(title:string = "Login",language:string = "pt-br"): string =
   compiletemplatefile("articles/login.nimja",basedir = getscriptdir() / "../templates")
 
 proc showLoginPage*(request: Request) =
+  debugEcho(isLogged(request))
+  debugEcho(LoggedAs(request))
   resp renderLoginPage()
 
 proc generateApiKey(byteLength: int = 32): string =
