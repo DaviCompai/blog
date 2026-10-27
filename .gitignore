@@ -4,3 +4,5 @@ nimble.paths
 nimbledeps
 blog.db
 /nimble.paths
+/blog.db-wal
+/blog.db-shm
