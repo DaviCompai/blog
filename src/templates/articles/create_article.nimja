@@ -28,7 +28,16 @@
       <label for="content">Conteudo</label>
       <textarea rows="12" cols="" name="content" id="content"></textarea>
       <script>
-      const easyMDE = new EasyMDE();
+        //codigo bizarro pro tab funcionar
+      const easyMDE = new EasyMDE({
+          configureMouseLineTracking: true, 
+          onActivity: () => {},
+      });
+
+      easyMDE.codemirror.setOption("extraKeys", {
+          "Tab": false,
+          "Shift-Tab": false
+      });
       </script>
 
       <label for="language">Lingua</label>
