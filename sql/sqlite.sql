@@ -39,7 +39,7 @@ VALUES
     (1,'title example','# example content','<h1>example content</h1>','path/to/image')
 ;
 
-SELECT title,content_html FROM posts;
+SELECT title,content_html FROM posts ORDER BY date_made desc;
 
 -- pegar nome completo da lingua e o id
 SELECT concat(name,'-',country),id FROM languages
