@@ -23,7 +23,8 @@ proc renderMakePostPage(languages:seq[tuple[language_display: string,language_id
 proc showMakePostPage*(request: Request) =
   var languages: seq[tuple[language_display: string, language_id: int]] = @[]
 
-
+  if not isLogged(request):
+    redirect("/login")
   for row in db.iterate("SELECT concat(name,'-',country),id FROM languages"):
     languages.add(row.unpack((string, int)))
   resp renderMakePostPage(languages)
