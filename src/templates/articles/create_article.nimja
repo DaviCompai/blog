@@ -6,7 +6,6 @@
   <link href="/articles/style.css" rel="stylesheet">
   <link href="/articles/create_article.css" rel="stylesheet">
 
-  <script type="module" src="https://static.davicompai.com/librarys/htmx.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
   <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
 {% endblock %}
@@ -59,5 +58,6 @@
 
 {% block footer %}
   {% importnimja partials/_default_footer.nimja %}
+  <!-- <script type="module" src="https://static.davicompai.com/librarys/htmx.js" crossorigin="anonymous"></script> -->
 {% endblock %}
 

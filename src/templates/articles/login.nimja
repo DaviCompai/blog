@@ -3,7 +3,6 @@
 {% block extra-head %}
   <link href="https://static.davicompai.com/reset.css" rel="stylesheet">
   <link href="https://static.davicompai.com/ifBrutal.css" rel="stylesheet">
-  <script type="module" src="https://static.davicompai.com/librarys/htmx.js" crossorigin="anonymous"></script>
   <link href="/articles/style.css" rel="stylesheet">
   <link href="/login/style.css" rel="stylesheet">
 {% endblock %}
@@ -37,5 +36,6 @@
 
 {% block footer %}
   {% importnimja partials/_default_footer.nimja %}
+  <!-- <script type="module" src="https://static.davicompai.com/librarys/htmx.js" crossorigin="anonymous"></script> -->
 {% endblock %}
 
