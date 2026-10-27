@@ -48,10 +48,12 @@
     display: grid;
 
     h1 {
+      font-size: calc(18px * 3);
       display: block;
       margin: 0px;
       margin: auto auto;
       text-align: center;
+      font-family: 'OldEnglishGothicPixel';
 
       font-size: clamp(54px, 10vw, 72px);
       margin-bottom: 2px;
@@ -61,12 +63,14 @@
   main {
     display: block;
 
-    a {
+    &>a {
       display: flex;
       flex-direction: column;
       gap: 1rem;
       color: inherit;
       text-decoration: inherit;
+
+      margin-bottom: 45px;
 
       article {
 
@@ -112,14 +116,14 @@
             border-right: none;
 
             h2 {
-              font-size: calc(18px * 1.75);
+              font-size: 2rem;
               -webkit-line-clamp: 3;
               line-clamp: 3;
             }
 
             p {
               border-bottom: var(--big_border);
-              font-size: 1.5rem;
+              font-size: 1rem;
             }
           }
 
@@ -194,7 +198,6 @@
       image-rendering: pixelated;
       border: var(--big_border);
       box-shadow: var(--big_box_shadow);
-      /* background-color: var(--slight_accent); */
       background-color: var(--background-color);
 
       margin-bottom: var(--margin_large);
@@ -216,15 +219,7 @@
     font-size: 16px;
   }
 
-  p {
-    font-size: 2rem;
-  }
-
   h1 {
-    font-size: calc(18px * 3);
-    /* font-family: 'PixelScript'; */
-    font-family: 'OldEnglishGothicPixel';
-
     -webkit-font-smoothing: none;
     -moz-osx-font-smoothing: none;
     font-smooth: never;
@@ -232,9 +227,8 @@
   }
 
   h2 {
-    font-size: calc(18px * 2);
     /* font-family: 'PixelScript'; */
-    font-family: 'OldEnglishGothicPixel';
+    /* font-family: 'OldEnglishGothicPixel'; */
 
     -webkit-font-smoothing: none;
     -moz-osx-font-smoothing: none;
@@ -286,4 +280,66 @@
   src: url('https://static.davicompai.com/PixelScriptRegular.woff2');
   font-weight: normal;
   font-style: normal;
+}
+
+p,
+label,
+input,
+button,
+select,
+textarea,
+optgroup,
+option,
+output,
+fieldset,
+legend,
+datalist,
+li,
+dt,
+dd,
+td,
+th,
+caption,
+figcaption,
+address,
+blockquote,
+details,
+summary,
+dialog,
+pre,
+code,
+kbd,
+samp,
+var,
+figure {
+  font-size-adjust: cap-height 1 !important;
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'boldpixels';
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  font-smooth: auto;
+  text-rendering: auto;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+
+ul {
+  list-style-type: "*";
 }

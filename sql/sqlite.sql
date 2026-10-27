@@ -30,8 +30,22 @@ CREATE TABLE posts (
    FOREIGN KEY (language_id)
       REFERENCES languages(id)
 );
+ALTER TABLE posts ADD COLUMN content_pure TEXT;
+
+update posts set content_pure = 'damn' where content_pure is null;
 
 INSERT INTO posts (language_id, title, content_md,content_html, image_path)
 VALUES
     (1,'title example','# example content','<h1>example content</h1>','path/to/image')
+;
+
+SELECT title,content_html FROM posts;
+
+-- pegar nome completo da lingua e o id
+SELECT concat(name,'-',country),id FROM languages
+
+insert into languages (name,country)
+values
+    ('pt','br'),
+    ('en','us')
 ;

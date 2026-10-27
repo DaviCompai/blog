@@ -1,0 +1,54 @@
+{% extends  partials/_html_wrapper.nimja %}
+
+{% block extra-head %}
+  <link href="https://static.davicompai.com/reset.css" rel="stylesheet">
+  <link href="https://static.davicompai.com/ifBrutal.css" rel="stylesheet">
+  <link href="/articles/style.css" rel="stylesheet">
+  <link href="/articles/create_article.css" rel="stylesheet">
+
+  <script type="module" src="https://static.davicompai.com/librarys/htmx.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+{% endblock %}
+
+
+{% block header %}
+  <h1>Fazer Artigo</h1>
+{% endblock %}
+
+
+{% block content %}
+
+  <create-article>
+    <form action="" method="POST">
+
+      <label for="title">Titulo</label>
+      <input type="text" name="title" id="title" required>
+
+      <label for="content">Conteudo</label>
+      <textarea rows="12" cols="" name="content" id="content"></textarea>
+      <script>
+      const easyMDE = new EasyMDE();
+      </script>
+
+      <label for="language">Lingua</label>
+      <select name="language" id="language" required>
+        
+        {% for (language_display,language_id) in languages %}
+          <option value="{{language_id}}">{{language_display}}</option>
+        {% endfor %}
+
+      </select>
+
+      <input type="submit" value="Enviar">
+
+    </form>
+  </create-article>
+
+{% endblock %}
+
+
+{% block footer %}
+  {% importnimja partials/_default_footer.nimja %}
+{% endblock %}
+
