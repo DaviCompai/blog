@@ -1,0 +1,41 @@
+{% extends  partials/_html_wrapper.nimja %}
+
+{% block extra-head %}
+  <link href="https://static.davicompai.com/reset.css" rel="stylesheet">
+  <link href="https://static.davicompai.com/ifBrutal.css" rel="stylesheet">
+  <script type="module" src="https://static.davicompai.com/librarys/htmx.js" crossorigin="anonymous"></script>
+  <link href="/articles/style.css" rel="stylesheet">
+  <link href="/login/style.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block header %}
+  <h1>Login</h1>
+{% endblock %}
+
+
+{% block content %}
+
+<!-- TODO: arrumar a aparencia desse negócio -->
+  <article>
+    <form action="" method="POST">
+
+      <label for="user">Usuário</label>
+      <input type="text" name="user" id="user" required>
+
+      <label for="password">Senha</label>
+      <input type="password" name="password" id="password" required>
+
+
+      <input type="submit" value="Enviar">
+
+    </form>
+  </article>
+
+{% endblock %}
+
+
+{% block footer %}
+  {% importnimja partials/_default_footer.nimja %}
+{% endblock %}
+
