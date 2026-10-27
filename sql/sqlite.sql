@@ -24,15 +24,35 @@ CREATE TABLE posts (
    title TEXT,
    content_md TEXT,
    content_html TEXT,
+    content_pure TEXT,
    image_path TEXT,
    date_made DATE default current_date,
 
    FOREIGN KEY (language_id)
       REFERENCES languages(id)
 );
-ALTER TABLE posts ADD COLUMN content_pure TEXT;
+-- ALTER TABLE posts ADD COLUMN content_pure TEXT;
+-- update posts set content_pure = 'damn' where content_pure is null;
 
-update posts set content_pure = 'damn' where content_pure is null;
+CREATE TABLE auth (
+  user text not null PRIMARY KEY,
+  password text not null
+);
+
+
+PRAGMA foreign_keys = ON;
+CREATE TABLE auth_codes
+(
+  code       text      not null,
+  user       text      not null,
+  expires_at date_time not null default (datetime('now', '+7 days')),
+  primary key (code, user),
+  FOREIGN KEY (user)
+    REFERENCES auth (user)
+);
+SELECT user,password FROM auth WHERE user = 'DaviCompai';
+DELETE FROM auth_codes WHERE expires_at < datetime('now');
+INSERT INTO auth_codes (code,user) VALUES ('code','user');
 
 INSERT INTO posts (language_id, title, content_md,content_html, image_path)
 VALUES
@@ -49,3 +69,5 @@ values
     ('pt','br'),
     ('en','us')
 ;
+
+SELECT code FROM auth_codes WHERE user = ?;
