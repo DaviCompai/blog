@@ -1,13 +1,19 @@
-import std/[json, options,htmlparser,xmltree,times,sysrand, strutils, base64]
+import std/[json, options,htmlparser,xmltree,times,sysrand, strutils, base64,unicode]
 
 import mummy, mummy/routers
 import mummy_utils
+
 import marvdown
+
 import nimja/parser
+
+import unislug
 
 import tiny_sqlite
 
 import ../utilities/[db_utils, markdown_utils,login_utils]
+
+import normalize
 
 var language = ""
 
@@ -30,14 +36,18 @@ proc showMakePostPage*(request: Request) =
   resp renderMakePostPage(languages)
 
 proc PostArticle*(request: Request) =
+  if not isLogged(request):
+    redirect("/login")
   let title = @"title"
   let content_md = @"content"
   let language_id = @"language"
 
   let content_html = markdownToHtml(content_md)
   let content_pure = parseHtml(content_html).innerText()
+  {.gcsafe.}:
+    let slug = slugify(title)
 
-  db.exec("INSERT INTO posts (language_id, title, content_md,content_html,content_pure) VALUES (?,?,?,?)",language_id,title,content_md,content_html,content_pure)
+  db.exec("INSERT INTO posts (language_id, title, content_md,content_html,content_pure,slug) VALUES (?,?,?,?,?,?)",language_id,title,content_md,content_html,content_pure,slug)
   # showMakePostPage(request)
   redirect(request.uri)
 
@@ -72,3 +82,32 @@ proc PostLogin*(request: Request) =
       let expiryDate = (now() + 7.days).utc
       setCookie("auth_code", api_key, expires = expiryDate)
   redirect(request.uri)
+
+proc removeDiacritics(s: string): string =
+  result = ""
+  # Iterate over each rune in its Normalization Form D (Decomposed) representation
+  for r in toNFD(s):
+    # Filter out combining diacritical marks (Unicode block U+0300 to U+036F)
+    let intVal = r.int
+    if intVal < 0x0300 or intVal > 0x036F:
+      result.add($r)
+
+proc renderArticle(title:string = "Login",language:string = "pt-br",content_html:string): string =
+  compiletemplatefile("articles/article.nimja",basedir = getscriptdir() / "../templates")
+
+proc getArticle*(request:Request) =
+  let article_sluggified_name = @"article_name"
+  let article_info = db.one("""
+  SELECT posts.title,
+        posts.content_html,
+        concat(l.name,'-',l.country) AS language
+  FROM posts
+  join languages l on posts.language_id = l.id
+  WHERE slug = ?;
+  """,article_sluggified_name)
+
+  let title = article_info.get[0].strVal
+  let content_html = article_info.get[1].strVal
+  let language = article_info.get[2].strVal
+
+  resp renderArticle(title,language,content_html)
