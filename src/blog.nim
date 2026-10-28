@@ -9,9 +9,9 @@ import nimja/parser
 
 import tiny_sqlite
 
-import articles/articles
+import utilities/utils
 
-import utilities/db_utils
+import articles/articles
 
 # proc renderArticlesPage()
 
