@@ -6,6 +6,12 @@ CREATE TABLE languages (
   country TEXT NOT NULL
 );
 
+insert into languages (name,country)
+values
+  ('pt','br'),
+  ('en','us')
+;
+
 PRAGMA foreign_keys = ON;
 CREATE TABLE posts (
    id INTEGER PRIMARY KEY,
