@@ -1,7 +1,7 @@
 :root {
   @media (width <=768px) {
     /* --cap_height: cap-height 0.8; */
-    --multiply_font_size: calc(16/14);
+    --multiply_font_size: calc(16/12);
   }
 
   body {
