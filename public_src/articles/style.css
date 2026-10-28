@@ -1,6 +1,11 @@
 :root {
   --cap_height: cap-height 1;
   --margin_articles_homepage: var(--margin_large);
+  --multiply_font_size: calc(16/10);
+
+  html {
+    font-size: 16px;
+  }
 
   body {
     display: grid;
@@ -18,6 +23,11 @@
     padding-left: 10vw;
     padding-right: 10vw;
 
+    @media (width <=768px) {
+      padding-left: 0px;
+      padding-right: 0px;
+      margin: 0px;
+    }
 
     main,
     body,
@@ -39,8 +49,9 @@
 
   @media (width <=768px) {
     body {
-      margin-left: var(--margin_articles_homepage);
-      margin-right: var(--margin_articles_homepage);
+      /* margin-left: var(--margin_articles_homepage); */
+      /* margin-right: var(--margin_articles_homepage); */
+      margin: 0px;
     }
   }
 
@@ -221,9 +232,6 @@
     }
   }
 
-  html {
-    font-size: 16px;
-  }
 
   h1 {
     -webkit-font-smoothing: none;
@@ -318,7 +326,8 @@ kbd,
 samp,
 var,
 figure {
-  font-size-adjust: var(--cap_height) !important;
+  /* font-size-adjust: var(--cap_height) !important; */
+  font-size: calc(1rem * var(--multiply_font_size));
 }
 
 
@@ -334,15 +343,15 @@ h4 {
 }
 
 h1 {
-  font-size: 3.5rem;
-}
-
-h2 {
   font-size: 3rem;
 }
 
-h3 {
+h2 {
   font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
 }
 
 
