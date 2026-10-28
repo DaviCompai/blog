@@ -13,6 +13,11 @@
       "footer"
     ;
     justify-content: center;
+    width: 100vw;
+
+    padding-left: 10vw;
+    padding-right: 10vw;
+
 
     main,
     body,
@@ -24,9 +29,6 @@
         width: calc(100vw - 24px);
       }
     }
-
-    margin-left: 10vw;
-    margin-right: 10vw;
 
     font-family: 'boldpixels';
     -webkit-font-smoothing: none;
