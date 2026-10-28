@@ -1,0 +1,32 @@
+{% extends  partials/_html_wrapper.nimja %}
+
+{% block extra-head %}
+  <link href="https://static.davicompai.com/reset.css" rel="stylesheet">
+  <link href="https://static.davicompai.com/ifBrutal.css" rel="stylesheet">
+  <link href="/articles/style.css" rel="stylesheet">
+  <link href="/articles/style_article.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block header %}
+  <h1>{{removeDiacritics(title)}}</h1>
+{% endblock %}
+
+
+<!-- TODO: fazer isso -->
+{% block content %}
+
+  <article>
+    <div>
+      {{content_html}}
+    </div>
+  </article>
+
+{% endblock %}
+
+
+{% block footer %}
+  {% importnimja partials/_default_footer.nimja %}
+  <!-- <script type="module" src="https://static.davicompai.com/librarys/htmx.js" crossorigin="anonymous"></script> -->
+{% endblock %}
+
