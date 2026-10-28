@@ -71,3 +71,5 @@ values
 ;
 
 SELECT code FROM auth_codes WHERE user = ?;
+
+delete from posts where 1+1;

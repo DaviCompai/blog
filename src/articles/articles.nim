@@ -40,6 +40,7 @@ proc PostArticle*(request: Request) =
     redirect("/login")
   let title = @"title"
   let content_md = @"content"
+  debugEcho(content_md)
   let language_id = @"language"
 
   let content_html = markdownToHtml(content_md)
