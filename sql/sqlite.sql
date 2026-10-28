@@ -31,7 +31,7 @@ CREATE TABLE posts (
    FOREIGN KEY (language_id)
       REFERENCES languages(id)
 );
-ALTER TABLE posts ADD COLUMN slug TEXT;
+-- ALTER TABLE posts ADD COLUMN slug TEXT;
 -- update posts set content_pure = 'damn' where content_pure is null;
 
 CREATE TABLE auth (
@@ -71,11 +71,3 @@ values
 ;
 
 SELECT code FROM auth_codes WHERE user = ?;
-
-SELECT posts.title,
-       posts.content_html,
-       concat(l.name,'-',l.country) AS language
-FROM posts
-join languages l on posts.language_id = l.id
-WHERE slug = 'teste-da-silva-pao';
-
