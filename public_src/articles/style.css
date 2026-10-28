@@ -94,6 +94,7 @@
 
         div {
           height: auto;
+          max-height: 300px;
 
 
           grid-template-rows: min-content auto;
