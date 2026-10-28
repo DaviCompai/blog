@@ -18,4 +18,6 @@ article a {
   display: inline;
   word-break: break-word;
   overflow-wrap: break-word;
+
+  text-wrap: pretty;
 }
