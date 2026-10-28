@@ -1,8 +1,8 @@
 # TODO
-- [ ] fazer pagina dos artigos
-- [ ] fazer pagina da criação de artigos
-- [ ] adicionar artigos a home do blog dinamicamente
-- [ ] adicionar tela de escrever e mandar artigos (com autentificação)
+- [x] fazer pagina dos artigos
+- [x] fazer pagina da criação de artigos
+- [x] adicionar artigos a home do blog dinamicamente
+- [x] adicionar tela de escrever e mandar artigos (com autentificação)
 
 # MELHORIAS
 
