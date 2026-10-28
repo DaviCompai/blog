@@ -94,7 +94,8 @@
 
         div {
           height: auto;
-          max-height: 300px;
+          min-height: 0px;
+          overflow-y: auto;
 
 
           grid-template-rows: min-content auto;
@@ -143,8 +144,8 @@
             overflow: hidden;
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 8;
-            line-clamp: 8;
+            -webkit-line-clamp: 6;
+            line-clamp: 6;
           }
         }
 
