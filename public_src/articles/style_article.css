@@ -13,3 +13,9 @@
 article {
   padding: 0px 2px;
 }
+
+article a {
+  display: inline;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
