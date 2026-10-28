@@ -1,4 +1,5 @@
 :root {
+  --cap_height: cap-height 1;
   --margin_articles_homepage: var(--margin_large);
 
   body {
@@ -110,13 +111,14 @@
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
             line-clamp: 2;
+
+            text-wrap: wrap;
           }
 
           @media (width <=768px) {
             border-right: none;
 
             h2 {
-              font-size: 2rem;
               -webkit-line-clamp: 3;
               line-clamp: 3;
             }
@@ -312,7 +314,7 @@ kbd,
 samp,
 var,
 figure {
-  font-size-adjust: cap-height 1 !important;
+  font-size-adjust: var(--cap_height) !important;
 }
 
 
