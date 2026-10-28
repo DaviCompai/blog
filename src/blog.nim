@@ -15,6 +15,14 @@ import utilities/db_utils
 
 # proc renderArticlesPage()
 
+proc myErrorHandler(request: Request, e: ref Exception) =
+  stderr.writeLine "=== ERROR ==="
+  stderr.writeLine "method: ", request.httpMethod
+  stderr.writeLine "uri:    ", request.uri
+  stderr.writeLine "exc:    ", e.name, ": ", e.msg
+  stderr.writeLine e.getStackTrace()
+  resp Http500, "internal error"
+
 proc markdownToHtmlTest(request: Request) {.gcsafe.}=
   let opts = MarkdownOptions(
     allowed: @[tagP, tagStrong, tagEm, tagA, tagCode, tagPre],
@@ -51,6 +59,9 @@ router.get("/@article_name",getArticle)
 # router.get("/file/@filename", indexFile)
 # router.post("/multipart", indexMultipart)
 #
+#
+
+router.errorHandler = myErrorHandler
 
 let server = newServer(router, workerThreads = 4)
 echo "Serving on http://localhost:8086"
