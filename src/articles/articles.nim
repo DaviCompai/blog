@@ -39,7 +39,7 @@ proc PostArticle*(request: Request) =
   if not isLogged(request):
     redirect("/login")
   let title = @"title"
-  let content_md = @"content"
+  let content_md = @"content".replace("\r\n", "\n").replace("\r", "\n")
   debugEcho("value of content_md:\n")
   debugEcho(content_md)
   debugEcho("value of content_md repr:\n")
