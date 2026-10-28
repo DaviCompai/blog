@@ -13,7 +13,8 @@ CREATE TABLE posts (
    title TEXT,
    content_md TEXT,
    content_html TEXT,
-    content_pure TEXT,
+   content_pure TEXT,
+   slug TEXT,
    image_path TEXT,
    date_made DATE default current_date,
 
