@@ -3,9 +3,10 @@
 - [x] fazer pagina da criação de artigos
 - [x] adicionar artigos a home do blog dinamicamente
 - [x] adicionar tela de escrever e mandar artigos (com autentificação)
+- [ ] adicionar script inicial para BD caso o mesmo não exista ainda (essencial para o servidor)
+
 
 # MELHORIAS
-
 
 - [ ] adicionar pesquisa de artigos
 - [ ] usar virtual table fts5 para o texto e o titulo na pesquisa
