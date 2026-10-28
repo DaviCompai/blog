@@ -1,4 +1,4 @@
-import std/[json, options,htmlparser,xmltree,times,sysrand, strutils, base64,unicode]
+import std/[json, options,htmlparser,xmltree,times,sysrand, strutils,base64]
 
 import mummy, mummy/routers
 import mummy_utils
@@ -11,9 +11,7 @@ import unislug
 
 import tiny_sqlite
 
-import ../utilities/[db_utils, markdown_utils,login_utils]
-
-import normalize
+import ../utilities/utils
 
 var language = ""
 
@@ -86,15 +84,6 @@ proc PostLogin*(request: Request) =
       let expiryDate = (now() + 7.days).utc
       setCookie("auth_code", api_key, expires = expiryDate)
   redirect(request.uri)
-
-proc removeDiacritics(s: string): string =
-  result = ""
-  # Iterate over each rune in its Normalization Form D (Decomposed) representation
-  for r in toNFD(s):
-    # Filter out combining diacritical marks (Unicode block U+0300 to U+036F)
-    let intVal = r.int
-    if intVal < 0x0300 or intVal > 0x036F:
-      result.add($r)
 
 proc renderArticle(title:string = "Login",language:string = "pt-br",content_html:string): string =
   compiletemplatefile("articles/article.nimja",basedir = getscriptdir() / "../templates")
